@@ -1,0 +1,126 @@
+/*
+CH-230-A
+a11_p6.h
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: Vector.h*/
+
+class Vector
+{
+private:
+    int size;
+    //double i_component;
+    //double j_component;
+    //double k_component;
+    double *mem_location;
+public:
+    Vector();
+    Vector(int)
+    Vector(int, double);
+    Vector(int, double, double, double);
+    Vector(const Vector &);
+    ~Vector();
+
+    double components();
+    double norm();
+    Vector add(const Vector) const;
+
+    void setSize(int);
+    void setMemLocation(double[]);
+
+    int getSize();
+    double[] getMemLocation();
+    
+    Vector add(Vector);
+    Vector subtr(Vector);
+    double norm();
+    double ScalarProd(Vector);
+
+};
+=-=-===-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=--=--=-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Vector::Vector(int, double i, double j, double k)
+{
+    i_component = i;
+    j_component = j;
+    k_component = k;
+}
+
+Vector::Vector(const Vector &copy)
+{
+    i_component = copy.i_component;
+    j_component = copy.j_component;
+    k_component = copy.k_component;
+}
+
+double Vector::components()
+{
+    cout << "components of vector: " << " " << i_component << " " << j_component << " " << k_component<< endl;
+}
+
+double Vector::norm()
+{
+}
+
+double Vector::add(const Vector) const
+{
+}
+Vector::~Vector()
+{
+    delete mem_location;
+}*/
+
+//Vector::Vector(/* args */)
+//{
+//}
+
+//Vector::~Vector()
+//{
+//}
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=-=-=-=
+
