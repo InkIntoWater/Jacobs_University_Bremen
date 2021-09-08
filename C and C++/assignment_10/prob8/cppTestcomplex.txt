@@ -1,0 +1,88 @@
+/*
+CH-230-A
+a10_p8.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: testcomplex.cpp*/
+
+#include <iostream>
+#include "Complex.h"
+
+using namespace std;
+
+int main() 
+{
+	float realA;
+    float imagA;
+    float realB;
+    float imagB;
+
+	cout << "Real part of first complex number: \n";
+    cin >> realA;
+	cout << "Imaginary part of first complex number: \n";
+	cin >> imagA;
+	cout << "Real part of second complex number: \n";
+	cin >> realB;
+	cout << "Imaginary part of first complex number: \n";
+	cin >> imagB;
+    //cout << endl;
+
+	//Complex a = Complex (realA, imaginaryA);
+    //Complex b = Complex (realB, imaginaryB);
+	Complex a;
+	a.setReal(realA);
+	a.setImag(imagA);
+	
+	Complex b;
+	b.setReal(realB);
+	b.setImag(imagB);
+
+	Complex c;
+
+	cout << "\n" << "Outputs: \n";
+
+	cout << "Conjugate of first complex number: \n";
+	a.conj();
+
+	c = a.add(b);
+	cout << "Sum of two complex numbers: \n";
+	c.print();
+
+	c=a.subtr(b);
+	cout << "Difference of two complex numbers: \n";
+	c.print();
+
+	c=a.mult(b);
+	cout << "Multiplication of two complex numbers: \n";
+	c.print();
+
+	/*a.conj();
+	cout << "Sum= " << a.add(b);
+	cout << "Difference= " << a.subtr(b);
+	cout << "Multiplication= " << a.mult(b);
+	*/
+	
+	
+	
+	/*double a, b;
+	Complex c1(a, b);
+	cin >> a;
+	cin >> b;*/
+	//cout << c1.conj << endl;
+
+	//Complex c2(a, b);
+	//cin >> a;
+	//cin >> b;
+	//Complex c3(-7, 8);
+	//Complex c4(6, 3);
+	//c1.print();
+	//c2.print();
+	//c3.print();
+	//c4.print();
+	//cout << c1.add(c1, c2) << endl;
+	//a.add(a, b);
+    //a.subtr(a, b);
+    //a.mult(a, b);
+    return 0;
+}

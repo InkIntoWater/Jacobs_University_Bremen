@@ -1,0 +1,33 @@
+/*
+CH-230-A
+a10_p8.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: complex.h*/
+
+class Complex {
+
+private:  // internal implementation is hidden
+	double real;  // real part
+	double imag;  // imaginary part
+
+public:
+	Complex();                 // empty constructor
+	Complex(float); // constructor taking values for real and
+							   // imaginary parts. Imaginary defaults to 0
+	Complex (float, float);
+	Complex (Complex &copy);
+	~Complex();
+
+	void setReal(float);
+	void setImag(float);
+	void conj();
+	Complex add(Complex); // x, Complex y); 
+    Complex subtr(Complex); // x Complex y);
+    Complex mult(Complex); // x, Complex y);
+
+	void print();              // prints it to the screen
+
+	//Complex(double, double);
+};

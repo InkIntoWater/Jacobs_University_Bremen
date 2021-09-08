@@ -1,0 +1,131 @@
+/*
+CH-230-A
+a10_p8.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: complex.cpp*/
+
+#include <iostream>
+#include <cmath>                      //needed for sqrt
+#include "Complex.h"
+
+using namespace std;  // for cout
+
+Complex::Complex() {  // sets everything to 0
+	real = imag = 0;
+	cout << "Constructor one is being called" << endl;
+}
+Complex::Complex(double r, double i) {  // initializes it to a given couple. 
+									  // Please note that here it is
+	real = r;                         // not necessary to replicate the default value for the second parameter
+	imag = i;
+	cout << "Constructor two is being called" << endl;
+}
+
+Complex::Complex(Complex & copy)
+{
+	real = copy.real;
+	imag = copy.imag;
+}
+
+void Complex::print() {               // prints data to screen via cout
+	if (imag) {
+		cout << noshowpos << real << showpos << imag << "i" << endl;
+	} else {
+		cout << noshowpos << real << showpos << endl;
+	}
+}
+
+void Complex::conj(Complex x)
+{
+	//Complex c;
+	double real = x.real;
+	double imag = (-1) *x.imag;
+	Complex c = Complex (real, imag);
+	cout << "conjugate:" << c.real << "+" << c.imag << "i" << endl;
+	return c;
+}
+//return c;
+//cout << "Conjugate: " << c;
+
+Complex Complex::add(Complex x, Complex y)
+{
+	//Complex c;
+	double real = x.real + y.real;
+	double imag = x.imag + y.imag;
+	//return c;
+	//cout << "Addition: " << c;
+	Complex a = Complex (real, imag);
+	cout << "Add: " << a.real << "+" << a.imag << "i" << endl;
+}
+
+Complex Complex::subtr(Complex x, Complex y)
+{
+	//Complex c;
+	double real = x.real - y.real;
+	double imag = x.imag - y.imag;
+	//return c;
+	//cout << "Addition: " << c;
+	Complex b = Complex (real, imag);
+	cout << "Add: " << b.real << "+" << b.imag << "i" << endl;
+}
+
+
+Complex Complex::mult(Complex x, Complex y)
+{
+	//Complex c;
+	double real = (y.real * x.real) - (y.imag * x.imag);
+	double imag = (y.real * x.imag) + (y.imag * x.real);
+	//return c;
+	Complex m = Complex (m.real, m.imag)
+	cout << "Multiplication: " << m.real << "+" << m.imag << "i" << endl;
+}
+
+Complex::~Complex()
+{}
+
+/*Complex Complex::subtr(Complex x)
+{
+	Complex c;
+	c.real = real - x.real;
+	c.imag = imag - x.imag;
+	return c;
+	//cout << "Subtraction: " << c;
+}*/
+
+
+/*Complex Complex::addition(Complex a, Complex b) {         // computes the magnitude. 
+									  // Note that we can use freely C standard 
+									  // functions like sqrt
+    real = a.real + b.real;
+    imag = a.imag + b.imag;
+}
+
+Complex Complex::subtraction(Complex a, Complex b){
+
+    real = a.real - b.real;
+    imag = a.imag - b.imag;
+}
+
+void Complex::multiplication(){
+
+    real = (a.real * b.real) - (a.imag * b.imag);
+    imag = (a.real * b.imag) + (b.imag * c.imag);
+}*/
+
+/*void Complex::print() {               // prints data to screen via cout
+	if (imag) {
+		cout << noshowpos << real << showpos << imag << "i" << endl;
+	} else {
+		cout << noshowpos << real << showpos << endl;
+	}
+    //cout << "("<< real <<", " << imag <<")";
+}*/
+/*void Complex::print()
+{
+	cout << conj(Complex) << endl;
+	cout << add(Complex) << endl;
+	cout << subtr(Complex) << endl;
+	cout << mult(Complex) << endl;
+}*/

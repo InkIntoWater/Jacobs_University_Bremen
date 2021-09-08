@@ -1,0 +1,17 @@
+/*
+CH-230-A
+a10_p1.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: explanations.txt*/
+
+When we comment out the 'using namespace std;', it shows the error message because the 
+code cannot check the standard library without the 'using namespace std;' for compiling the 
+standard functionalities like cout, cin, endl and then it is unable to declare other 
+classes like name.
+
+When we remove the 'Critter::' prefix in one or more of the methods in 'Critter.cpp',
+it shows the error message because all the properties of Critter like name and hunger
+are defined inside the Critter class and without the critter class, the definitions of the 
+properties of critter cannot be defined.  

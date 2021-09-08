@@ -1,0 +1,8 @@
+When I comment out the 'using namespace std;' it shows the error message because 
+the code cannot check the standard library to find whether the scopes we declared
+in the code, like endl, cout and other c++ functionalities, are declared in the scope or not. 
+
+When we remove the 'Critter::' prefix in one of the methods in Critter.cpp, it 
+shows the error message because without the 'Critter::'  our code will not be able
+to find out the definition of the properties, like name and hunger, of the critter
+as all those properties are declared inside the 'Critter'.

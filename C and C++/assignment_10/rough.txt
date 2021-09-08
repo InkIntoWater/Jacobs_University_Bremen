@@ -1,0 +1,88 @@
+/*
+CH-230-A
+a10_p3.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: testcity.h*/
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include "City.h"
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    //Bremen
+    City Bremen;
+    string nameB;
+    int numbofinhabB;
+    string mayorB;
+    double areaB;
+
+    cout << "for Bremen\n";
+    cout << "City Name: ";
+    cin >> nameB;
+    Bremen.setName(nameB);
+    cout << "Number of inhabitants: ";
+    cin >> numbofinhabB;
+    Bremen.setNumofinhab(numbofinhabB);
+    cout << "Mayor's name: ";
+    getline(cin, mayorB);
+    Bremen.setMayor(mayorB);
+    //Bremen.setMayor(mayorB);
+    cout << "Area: ";
+    cin >> areaB;
+    Bremen.setArea(areaB);
+    Bremen.print();
+
+    City Paris;
+    string nameP;
+    int numbofinhabP;
+    string mayorP;
+    double areaP;
+
+    cout << "For Paris \n";
+    cout << "City Name: ";
+    cin >> nameP;
+    Paris.setName(nameP);
+    cout << "Number of inhabitants: ";
+    cin >> numbofinhabP;
+    Paris.setNumofinhab(numbofinhabP);
+    cout << "Mayor: ";
+    getchar();
+    getline(cin, mayorP);
+    Paris.setMayor(mayorP);
+    //Paris.setMayor(mayorP);
+    cout << "Area: ";
+    cin >> areaP;
+    Paris.setArea(areaP);
+    Paris.print();
+
+    City London;
+    string nameL;
+    int numbofinhabL;
+    string mayorL;
+    double areaL;
+
+    cout << "for London \n";
+    cout << "City Name: ";
+    cin >> nameL;
+    London.setName(nameL);
+    cout << "Number of inhabitants: ";
+    cin >> numbofinhabL;
+    London.setNumofinhab(numbofinhabL);
+    cout << "Mayor: ";
+    getline(cin, mayorL);
+    London.setMayor(mayorL);
+    //London.setMayor(mayorL);
+    cout << "Area: ";
+    cin >> areaL;
+    London.setArea(areaL);
+    London.print();
+
+    cout << "Done" << endl;
+    return 0;
+}
