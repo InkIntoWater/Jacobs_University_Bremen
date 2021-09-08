@@ -1,0 +1,69 @@
+/*
+CH-230-A
+a13_p6.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    vector<int> v(20, 8);
+    try
+    {
+        v.at(21);
+
+    }
+    catch (const out_of_range &err)
+    {
+
+        cerr << "Exception: " << err.what() << endl;
+    }
+    return 0;
+}
+
+// int main()
+// {
+//     vector<int> v(20, 8);
+//     try
+//     {
+//         //if (v.at(21))
+//             //cout << v.at(8) << endl;
+//             throw "There is no element at 21st position";
+//     }
+
+//     catch (const out_of_range &err)
+//     {
+//         cout << "";
+//         //catches error of type out_of_range
+//         cerr << err.what() << endl;
+//     }
+
+//     cout << "Program Executed Successfully" << endl;
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+
+// int main () {
+// 	char *buffer;
+// 	int mb;
+// 	try {
+// 		cout << "How many MB should be reserved? ";
+// 		cin >> mb;
+// 		if (mb <= 0)
+// 			throw "Error getting memory!";
+// 		buffer = new char[256 * 4 * 1024 * mb];
+// 	}
+// 	catch (const char * str){
+// 		cout << "Exception: " << str << endl;
+// 		return 1;
+// 	}
+// 	cout << "Programm completed without errors." << endl;
+// 	return 0;
+// }

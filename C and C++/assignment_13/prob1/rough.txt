@@ -1,0 +1,60 @@
+/*
+CH-230-A
+a13_p1.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+    char firstfile[100];
+    char secondfile[100];
+    ifstream f1;
+    ofstream f2;
+    gets(firstfile);
+    f1.open(firstfile);
+    if (!f1)
+    {
+        cout << "Enter the name of the file to be copied: " << endl;
+        cin >> firstfile;
+        exit(1);
+    }
+    f2.open(secondfile);
+    int position;
+    position = firstfile.find(".");
+    secondfile = firstfile.insert(position, "_copy");
+    //f2.open(secondfile);
+    if (!f2)
+    {
+        (secondfile, firstfile);
+        f1.close();
+        while (f2.eof() == 0)
+        {
+            char copy = f1.get();
+            cout << copy;
+            exit(2);
+        }
+    }
+    cout << f2 << endl;
+
+    f1.close();
+    f2.close();
+
+    return 0;
+}
+
+
+
+    //   cout << "Enter the file"
+
+/*for (int i = 0; i < strlen(firstfile); i++)
+    {
+        getline(secondfile, firstfile);
+    }*/

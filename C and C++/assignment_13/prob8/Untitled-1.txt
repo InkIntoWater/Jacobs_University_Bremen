@@ -1,0 +1,171 @@
+/*
+CH-230-A
+a13_p8.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+
+#include <iostream>
+#include <stdexcept>
+
+using namespace std;
+
+//declaring the class Motor that is in Car
+class Motor
+{
+public:
+    Motor()
+    {
+        throw "Damaged \n";
+    }
+};
+
+//declaring the class Car that is in Garage
+class Car
+{
+public:
+    Motor m;
+
+    Car() : m() {}
+};
+
+//declaring the class Garage
+class Garage
+{
+public:
+    Garage()
+    {
+        try
+        {
+            Car c;
+            throw("The car in this garage has problems with the motor");
+        }
+        catch (const char *e)
+        {
+            cout << e;
+            throw "This motor has problems";
+        }
+    }
+};
+
+//checking in the garage class that is having problems with its motor
+int main()
+{
+    try
+    {
+        Garage g1;
+    }
+    catch (const char *e)
+    {
+        cout << e << endl;
+    }
+    return 0;
+}
+
+//throw "This motor has problems";
+
+ // try
+        // {
+        // throw "Damaged \n";
+        // }
+        // catch (const char &e)
+        // {
+        // }
+
+=-=-=-=-=-=-=-=-=-=-=-=-=
+-=-=-=-=-=-=-=-=-=-=-=-=-
+/*
+CH-230-A
+a13_p7.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+
+#include <iostream>
+#include <stdexcept>
+
+using namespace std;
+
+class Garage
+{
+public:
+    Garage()
+    {
+        try
+        {
+            Car c1;
+        }
+        catch(const char &e)
+        {
+            throw "The car in this garage has problems with the motor";
+        }
+    }
+    // Garage()
+    // {
+    //     try
+    //     {
+    //         throw("The car in this garage has problems with the motor");
+    //     }
+    //     catch (const char &e)
+    //     {
+
+    //         throw;
+    //     }
+    // }
+};
+
+class Car : public Garage
+{
+public:
+    Car()
+    {
+        Motor m;
+    }
+    // Car()
+    // {
+    //     try
+    //     {
+    //         Garage();
+    //     }
+    //     catch (const char &e)
+    //     {
+    //         throw;
+    //     }
+    // }
+};
+
+class Motor : public Car
+{
+public:
+    Motor()
+    {
+        Motor m;
+        throw "This motor has problems";
+    }
+    // {
+    //     try
+    //     {
+    //         Car();
+    //     }
+    //     catch (const char &e)
+    //     {
+    //         throw ;
+    //     }
+    // }
+};
+
+int main()
+{
+    try
+    {
+        Motor m1;
+    }
+    catch (const char &e)
+    {
+        cout << e << endl;
+    }
+    return 0;
+}
+
+//cerr << e.what() << endl;
+//cerr << e.what() << endl;

@@ -1,0 +1,413 @@
+/*
+CH-230-A
+a10_p8.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: complex.cpp*/
+
+#include <iostream>
+#include <cmath> //needed for sqrt
+#include "Complex.h"
+
+using namespace std; // for cout
+
+//for empty complex number/
+Complex::Complex()
+{ // sets everything to 0
+	real = imag = 0;
+	//cout << "Constructor one is being called" << endl;
+}
+
+//for complex number having only the real part
+Complex::Complex(float r)
+{
+	real = r;
+	imag = 0;
+}
+
+//for complex number having both real and imaginary parts
+Complex::Complex(float r, float i)
+{
+	real = r;
+	imag = i;
+}
+
+//setting the value to the real part of the complex number
+void Complex::setReal(double r)
+{
+	real = r;
+}
+
+double Complex::getReal()
+{
+	return real;
+}
+
+//setting the value to the imaginary part of the complex number
+void Complex::setImag(double i)
+{
+	imag = i;
+}
+
+double Complex::getImag()
+{
+	return imag;
+}
+
+//copy constructor
+Complex::Complex(Complex &copy)
+{
+	real = copy.real;
+	imag = copy.imag;
+}
+
+//operator overloading for +
+Complex Complex::operator+(Complex & a)
+{
+    Complex temp;
+    temp.real = real+a.real;
+    temp.imag=imag+a.imag;
+    return temp;
+}
+
+//operator overloading for -
+Complex Complex::operator-(Complex & a)
+{
+	Complex temp;
+	temp.real = real - a.real;
+	temp.imag = imag - a.imag;
+	return temp;
+}
+
+//operator overloading for *
+Complex Complex::operator*(Complex & a)
+{
+    Complex temp;
+    temp.real = (real * a.real) - (imag * a.imag);
+ 	temp.imag = (real * a.imag) + (imag * a.real);
+    return temp;
+}
+
+//operator overloading for =
+Complex & Complex::operator=(const Complex & a)
+{
+    real = a.real;
+    imag = a.imag;
+    return *this;
+}
+
+//operator overloading for <<
+ostream& operator << (ostream& out, Complex& c)
+
+{
+    out << noshowpos << c.real << showpos << c.imag << "i"; 
+    return out;
+}
+
+//operator overloading for >>
+istream& operator >> (istream& in, Complex& c)
+{
+	in >> noshowpos >> c.real >> showpos >> c.imag;
+	return in;
+}
+
+//for printing the output to the screen
+void Complex::print()
+{
+	if (imag)
+	{
+		cout << noshowpos << real << showpos << imag << "i" << endl;
+	}
+	else
+	{
+		cout << noshowpos << real << showpos << endl;
+	}
+}
+
+//for the conjugation of the complex number
+void Complex::conj()
+{
+
+	Complex c(real, (-1) * imag);
+	c.print();
+}
+
+//destructor for complex class
+Complex::~Complex()
+{
+}
+
+/*istream& operator >> (istream& in, Complex& c)
+{
+	in >> noshowpos >> c.real >> showpos >> c.imag;
+	char s = '\0';
+    while (s != 'i')
+    {
+		in >> c.real >> s >> c.imag >> "i"; 
+        // cout << "Enter the fraction: " << endl;
+        // while (c.real == 0)
+        // {
+        //     cout << "Re-enter Input" << endl;
+        //     in >> noshowpos >> c.real >> showpos >> c.imag >> s;
+        // }     
+    }
+    return in;
+}*/
+
+//for adding a complex number to another complex number
+// Complex Complex::add(Complex x)
+// {
+// 	Complex temp;
+// 	temp.real = real + x.real;
+// 	temp.imag = imag + x.imag;
+// 	return temp;
+// }
+
+//for subtracting a complex number from a complex number
+// Complex Complex::subtr(Complex x)
+// {
+// 	Complex temp;
+// 	temp.real = real - x.real;
+// 	temp.imag = imag - x.imag;
+// 	return temp;
+// }
+
+//for multiplying a complex number with another complex number
+// Complex Complex::mult(Complex x)
+// {
+// 	Complex temp;
+// 	temp.real = (real * x.real) - (imag * x.imag);
+// 	temp.imag = (real * x.imag) + (imag * x.real);
+// 	return temp;
+// }
+
+//using the destructor
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+/*
+CH-230-A
+a10_p8.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: complex.h*/
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+class Complex {
+
+private:  // internal implementation is hidden
+	double real;  // real part
+	double imag;  // imaginary part
+
+public:
+	Complex();                 // empty constructor
+	Complex(float);    //constructor if there exists only real part
+	Complex (float, float); //constructor for both real and imaginary parts
+	Complex (Complex &copy); //copy constructor
+	~Complex(); //empty destructor
+
+//Operator overloading for +, -, *, =, <<, >> as asked in question
+	Complex operator+(Complex &);
+	Complex operator-(Complex &);
+    Complex operator*(Complex &);
+    Complex & operator=(const Complex &);
+	friend ostream& operator << (ostream&, Complex&);
+    friend istream& operator >> (istream&, Complex&);
+
+	void setReal(double); //setter for real part.
+	void setImag(double); //setter for imaginary part.
+	void conj(); //function for conjugation of complex number.
+	double getReal(); //getter for real part
+	double getImag(); //getter for imaginary part
+//	Complex add(Complex);  /*function for additing complex numbers
+//							 to another complex number*/
+//    Complex subtr(Complex); /*function for subtracting a complex number 
+// 							 from another complex number*/
+//    Complex mult(Complex); /*function for multiplying a complex number 
+// 							 to another complex number*/
+
+	void print();         // function for printing output to the screen.
+
+};
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+/*
+CH-230-A
+a10_p8.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+/*file: testcomplex.cpp*/
+
+#include <iostream>
+#include "Complex.h"
+#include <stdlib.h>
+#include <fstream>
+#include <string.h>
+
+using namespace std;
+
+int main(int argc, char **argv)
+{
+	//opening the files using the streams
+	ifstream f1;
+	ifstream f2;
+	ofstream f3;
+
+	f1.open("in1.txt", ios::in); //file in1.txt is opened as input
+	f2.open("in2.txt", ios::in); //file in2.txt is opened as input
+	f3.open("output.txt", ios::out); //file output.txt is opened as output
+
+//casting the complex numbers from input files as complex numbers
+	Complex c1, c2;
+	f1 >> c1;
+	f2 >> c2;
+
+//declaring sum, difference and product of inputs
+	Complex sum;
+	Complex diff;
+	Complex prod;
+
+//calcularing sum, difference and producr of imputs
+	sum = c1 + c2;
+	diff = c1 - c2;
+	prod = c1 * c2;
+
+//printing output in the output.txt file
+	f3 << sum << endl;
+	f3 << diff << endl;
+	f3 << prod << endl;
+
+//printing output in the terminal
+	cout << "Sum: " << sum << endl;
+	cout << "Difference: " << diff << endl;
+	cout << "Product: " << prod << endl; 
+	cout << "DONE!! Output printed in the file too!!! " << endl;
+
+//closing the files
+	f1.close();
+	f2.close();
+	f3.close();
+	return 0;
+}
+
+// while (!f1.eof())
+// {
+// 	f1 >> c1;
+// }
+// while (!f2.eof())
+// {
+// 	f2 >> c2;
+// }
+
+// Complex sum;
+// sum =
+
+// cout << "sum: " << sum;
+
+// Complex comp1;
+// int i = 0;
+
+// while (!f1.eof() && !f2.eof())
+// {
+
+// 	cin >> (c1, comp1);
+// 	c1[i] = comp1;
+// 	i++;
+// }
+
+// cout << c1;
+
+// string firstfile;
+// string secondfile;
+// string thirdfile;
+// cout << "Enter the name of the files to be copied: " << endl;
+
+// cin >> firstfile;
+// cin >> secondfile;
+// cin >> thirdfile;
+
+// int position;
+// position = firstfile.find(".");
+// secondfile = firstfile.insert(position, "_copy");
+// f2.open(secondfile);
+// char copy[30];
+// while (f1.eof() == 0)
+// {
+//     f1.getline(copy, 30);
+//     f2 << copy << endl;
+// }
+// 	cout << "Done" << endl;
+// 	f1.close();
+// 	f2.close();
+// 	f3.close();
+// 	return 0;
+
+// 	//setting the real and imaginary parts of two complex numbers
+// 	float realA;
+// 	float imagA;
+// 	float realB;
+// 	float imagB;
+
+// 	/*feeding the input from keyboard for the real and imaginary parts
+// of the complex numbers*/
+// 	cout << "Real part of first complex number: \n";
+// 	cin >> realA;
+// 	cout << "Imaginary part of first complex number: \n";
+// 	cin >> imagA;
+// 	cout << "Real part of second complex number: \n";
+// 	cin >> realB;
+// 	cout << "Imaginary part of first complex number: \n";
+// 	cin >> imagB;
+
+// 	/*using the setters for setting the real and imaginary parts
+// of the first complex number. */
+// 	Complex a;
+// 	a.setReal(realA);
+// 	a.setImag(imagA);
+
+// 	/*using the setters for setting the real and imaginary parts
+// of the first complex number. */
+// 	Complex b;
+// 	b.setReal(realB);
+// 	b.setImag(imagB);
+
+// 	/*setting a third class for the complex number to store the
+// arithmetics carried out between the above two complex numbers.*/
+// 	Complex c;
+
+// 	cout << "\n"
+// 		 << "Outputs: \n";
+
+// 	cout << "Conjugate of first complex number: \n";
+// 	a.conj();
+
+// 	c = a.add(b); //storing the addition into the third complex number
+// 	cout << "Sum of two complex numbers: \n";
+// 	c.print(); //printing the addition
+
+// 	c = a.subtr(b); //storing the subtraction into the third complex number
+// 	cout << "Difference of two complex numbers: \n";
+// 	c.print(); //printing the subtraction
+
+// 	c = a.mult(b); //storing the multiplication into the third complex number
+// 	cout << "Multiplication of two complex numbers: \n";
+// 	c.print(); //printing the multiplication
+
+// Complex c1, c2;
+
+// FILE f1;
+// FILE f2;
+// FILE f3;
+
+// f1 = fopen("in1.txt");
+// f2 = fopen("in2.txt");
+// f3 = fopen("output.txt");
+
+// Complex *c1, *c2;
+// c1 = new Complex[100];
+// c2 = new Complex[100];

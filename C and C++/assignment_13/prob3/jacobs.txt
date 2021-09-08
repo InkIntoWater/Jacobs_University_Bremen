@@ -1,0 +1,102 @@
+jacobs university 
+=-=-=-=-=-=--=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-
+/*
+CH-230-A
+a13_p3.cpp
+Suraj Giri
+s.giri@jacobs-university.de
+*/
+
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Enter the value for n: " << endl;
+    cin >> n;
+    cout << "Enter the name of n files: " << endl;
+    string s;
+    string output;
+    ofstream out_f;
+    out_f.open("concatn.txt", ios::binary);
+
+    for (int i = 0; i < n; i++)
+    {
+        string filetoopen;
+        ifstream in_f;
+        cin >> filetoopen;
+        in_f.open(filetoopen, ios::binary);
+
+
+        while (!in_f.eof())
+        {
+            getline(in_f, s);
+            output = output + s + '\n';
+        }
+        in_f.close();
+
+    }
+
+    out_f << output;
+    out_f.close();
+
+    return 0;
+}
+
+//string outputfile;
+//while (in_f.eof() == 0)
+//{
+//in_f >> s;
+//}
+//in_f.close();
+//}
+
+// while (in_f.eof())
+// {
+//     string output = strcat(s2, s1);
+//     out_f << output << endl;
+// }
+
+//copy the contents of all files into the output file
+
+//strcat(filetoopen, outputfile);
+// out_f << in_f << endl;
+
+// while (in_f.eof() == '\n')
+// {
+//     in_f.getline(copy, 100);
+//     out_f << copy << endl;
+// }
+// in_f.close();
+// out_f.close();
+
+/*// string firstfile;
+    // string secondfile;
+    // ifstream f1;
+    // ofstream f2;
+
+    //cout << "Enter the name of the file to be copied: " << endl;
+
+    //cin >> firstfile;
+    //f1.open(firstfile);
+
+    int position;
+    position = firstfile.find(".");
+    secondfile = firstfile.insert(position, "_copy");
+    f2.open(secondfile);
+    char copy[30];
+    while (f1.eof() == 0)
+    {
+        f1.getline(copy, 30);
+        f2 << copy << endl;
+    }
+    cout << "Done" << endl;
+    f1.close();
+    f2.close();
+
+    return 0;*/
