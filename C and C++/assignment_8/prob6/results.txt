@@ -1,4 +1,0 @@
-sum = 12.000000 
-difference = 8.000000 
-product = 20.000000 
-division = 5.000000 
